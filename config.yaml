@@ -1,12 +1,11 @@
 meta:
   engine: 4.0.4
-  name: samoklava
-  version: 0.3
-  author: soundmonnster
-  url: https://github.com/soundmonster/samoklava
+  name: kain
+  version: 0.1
+  author: josephkain
 units:
-  kx: cx
-  ky: cy
+  kx: U
+  ky: U
   px: 2
   py: 2
 points:
@@ -32,6 +31,7 @@ points:
     matrix:
       key.padding: ky
       columns:
+        outer.key:
         pinky:
           key:
             stagger: 0 ky
@@ -66,26 +66,27 @@ points:
           row_net: row_top
     thumbfan:
       anchor:
-        ref: matrix_inner_bottom
-        shift: [-0.5 kx, -1 ky]
+        ref: matrix_index_bottom
+        shift: [-0.2 kx, -1.5 ky]
       columns:
         near:
           key:
             spread: kx
-            splay: -15
-            origin: [-0.5 kx, -0.5 ky]
+            # splay: -15
+            splay: 7
+            origin: [-1.8 kx, -0.5 ky]
             column_net: col_middle
         home:
           key:
             spread: kx
-            splay: -15
-            origin: [-0.5 kx, -0.5 ky]
+            splay: -14
+            origin: [-0.5 kx, -1.5 ky]
             column_net: col_index
         far:
           key:
             spread: kx
-            splay: -15
-            origin: [-0.5 kx, -0.5 ky]
+            splay: -14
+            origin: [-0.5 kx, -1.5 ky]
             column_net: col_inner
       rows:
         thumb:
@@ -118,9 +119,9 @@ outlines:
       points:
         - ref: matrix_ring_top
         - ref: matrix_ring_bottom
-        - ref: matrix_pinky_bottom
+        - ref: matrix_outer_bottom
           shift: [-0.5 (kx + px), 0]
-        - ref: matrix_pinky_top
+        - ref: matrix_outer_top
           shift: [-0.5 (kx + px), 0]
   patch_inner:
     - what: polygon
@@ -162,13 +163,13 @@ outlines:
     top_left:
       what: circle
       where:
-        - ref: matrix_ring_home
+        - ref: matrix_pinky_top
           shift: [-0.5 kx, 0 ky]
       radius: 1.05
     bottom_left:
       what: circle
       where:
-        - ref: matrix_pinky_bottom
+        - ref: matrix_outer_bottom
           shift: [0.5 kx, 0]
       radius: 1.05
     top_right:
@@ -180,8 +181,8 @@ outlines:
     palm:
       what: circle
       where:
-        - ref: matrix_index_bottom
-          shift: [0, -1.06 ky]
+        - ref: thumbfan_near_thumb
+          shift: [0.55 kx, 0 ky]
       radius: 1.05
     thumb:
       what: circle
@@ -393,7 +394,7 @@ pcbs:
             - matrix_pinky_bottom
           shift: [0.75 kx, 0]
         params:
-          text: "samoklava v0.3\\nby soundmonster"
+          text: "kain v0.1"
           justify: left
       info_r:
         what: text
@@ -403,6 +404,5 @@ pcbs:
           shift: [0.75 kx, 0]
         params:
           layer: B.SilkS
-          text: "samoklava v0.3\\nby soundmonster"
+          text: "kain v0.1"
           justify: right mirror
-
