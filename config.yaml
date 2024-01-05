@@ -29,6 +29,9 @@ points:
           shift: [0, -5]
   zones:
     matrix:
+      # Fix placement in KiCAD
+      anchor:
+        shift: [100, -100]
       key.padding: ky
       columns:
         outer.key:
